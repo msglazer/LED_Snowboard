@@ -1,0 +1,358 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:parts
+LIBS:Snowboard_Parts
+LIBS:LED_Snowboard-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 5 5
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L CONN_01X03 P?
+U 1 1 584A19A7
+P 7400 2450
+F 0 "P?" H 7400 2650 50  0000 C CNN
+F 1 "CONN_01X03" V 7500 2450 50  0000 C CNN
+F 2 "" H 7400 2450 50  0000 C CNN
+F 3 "" H 7400 2450 50  0000 C CNN
+	1    7400 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X03 P?
+U 1 1 584A19EE
+P 7400 3350
+F 0 "P?" H 7400 3550 50  0000 C CNN
+F 1 "CONN_01X03" V 7500 3350 50  0000 C CNN
+F 2 "" H 7400 3350 50  0000 C CNN
+F 3 "" H 7400 3350 50  0000 C CNN
+	1    7400 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L BARREL_JACK CON?
+U 1 1 584A1A0C
+P 8350 5400
+F 0 "CON?" H 8350 5650 50  0000 C CNN
+F 1 "BARREL_JACK" H 8350 5200 50  0000 C CNN
+F 2 "" H 8350 5400 50  0000 C CNN
+F 3 "" H 8350 5400 50  0000 C CNN
+	1    8350 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X02 P?
+U 1 1 584A1B10
+P 4200 2700
+F 0 "P?" H 4200 2850 50  0000 C CNN
+F 1 "CONN_01X02" V 4300 2700 50  0000 C CNN
+F 2 "" H 4200 2700 50  0000 C CNN
+F 3 "" H 4200 2700 50  0000 C CNN
+	1    4200 2700
+	1    0    0    -1  
+$EndComp
+Text HLabel 1000 900  0    60   Input ~ 0
+BAT_IN
+Text HLabel 900  1300 0    60   Input ~ 0
+V_IN
+Text HLabel 1550 1300 0    60   Input ~ 0
+5V_IN
+Text HLabel 6950 2450 0    60   Input ~ 0
+LED_CTRL
+$Comp
+L CONN_01X05 P?
+U 1 1 584A1C7C
+P 4550 4700
+F 0 "P?" H 4550 5000 50  0000 C CNN
+F 1 "CONN_01X05" V 4650 4700 50  0000 C CNN
+F 2 "" H 4550 4700 50  0000 C CNN
+F 3 "" H 4550 4700 50  0000 C CNN
+	1    4550 4700
+	1    0    0    -1  
+$EndComp
+Text HLabel 1650 900  0    60   Input ~ 0
+3.3V_IN
+$Comp
+L +5V #PWR?
+U 1 1 584A1D9A
+P 7100 2250
+F 0 "#PWR?" H 7100 2100 50  0001 C CNN
+F 1 "+5V" H 7100 2390 50  0000 C CNN
+F 2 "" H 7100 2250 50  0000 C CNN
+F 3 "" H 7100 2250 50  0000 C CNN
+	1    7100 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3.3V #PWR?
+U 1 1 584A1DB8
+P 4250 4400
+F 0 "#PWR?" H 4250 4250 50  0001 C CNN
+F 1 "+3.3V" H 4250 4540 50  0000 C CNN
+F 2 "" H 4250 4400 50  0000 C CNN
+F 3 "" H 4250 4400 50  0000 C CNN
+	1    4250 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 584A1DD6
+P 4250 5000
+F 0 "#PWR?" H 4250 4750 50  0001 C CNN
+F 1 "GND" H 4250 4850 50  0000 C CNN
+F 2 "" H 4250 5000 50  0000 C CNN
+F 3 "" H 4250 5000 50  0000 C CNN
+	1    4250 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L +BATT #PWR?
+U 1 1 584A1F38
+P 3900 2550
+F 0 "#PWR?" H 3900 2400 50  0001 C CNN
+F 1 "+BATT" H 3900 2690 50  0000 C CNN
+F 2 "" H 3900 2550 50  0000 C CNN
+F 3 "" H 3900 2550 50  0000 C CNN
+	1    3900 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 584A20CB
+P 3900 2850
+F 0 "#PWR?" H 3900 2600 50  0001 C CNN
+F 1 "GND" H 3900 2700 50  0000 C CNN
+F 2 "" H 3900 2850 50  0000 C CNN
+F 3 "" H 3900 2850 50  0000 C CNN
+	1    3900 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 584A23C4
+P 7100 2650
+F 0 "#PWR?" H 7100 2400 50  0001 C CNN
+F 1 "GND" H 7100 2500 50  0000 C CNN
+F 2 "" H 7100 2650 50  0000 C CNN
+F 3 "" H 7100 2650 50  0000 C CNN
+	1    7100 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 584A2415
+P 7100 3550
+F 0 "#PWR?" H 7100 3300 50  0001 C CNN
+F 1 "GND" H 7100 3400 50  0000 C CNN
+F 2 "" H 7100 3550 50  0000 C CNN
+F 3 "" H 7100 3550 50  0000 C CNN
+	1    7100 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR?
+U 1 1 584A2510
+P 7100 3150
+F 0 "#PWR?" H 7100 3000 50  0001 C CNN
+F 1 "+5V" H 7100 3290 50  0000 C CNN
+F 2 "" H 7100 3150 50  0000 C CNN
+F 3 "" H 7100 3150 50  0000 C CNN
+	1    7100 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7100 3150 7100 3250
+Wire Wire Line
+	7100 3250 7200 3250
+Wire Wire Line
+	7200 3450 7100 3450
+Wire Wire Line
+	7100 3450 7100 3550
+Wire Wire Line
+	7200 2550 7100 2550
+Wire Wire Line
+	7100 2550 7100 2650
+Wire Wire Line
+	7200 2350 7100 2350
+Wire Wire Line
+	7100 2350 7100 2250
+Wire Wire Line
+	4000 2650 3900 2650
+Wire Wire Line
+	3900 2650 3900 2550
+Wire Wire Line
+	4000 2750 3900 2750
+Wire Wire Line
+	3900 2750 3900 2850
+$Comp
+L +BATT #PWR?
+U 1 1 584A2723
+P 1100 800
+F 0 "#PWR?" H 1100 650 50  0001 C CNN
+F 1 "+BATT" H 1100 940 50  0000 C CNN
+F 2 "" H 1100 800 50  0000 C CNN
+F 3 "" H 1100 800 50  0000 C CNN
+	1    1100 800 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1100 800  1100 900 
+Wire Wire Line
+	1100 900  1000 900 
+$Comp
+L +3.3V #PWR?
+U 1 1 584A2854
+P 1750 800
+F 0 "#PWR?" H 1750 650 50  0001 C CNN
+F 1 "+3.3V" H 1750 940 50  0000 C CNN
+F 2 "" H 1750 800 50  0000 C CNN
+F 3 "" H 1750 800 50  0000 C CNN
+	1    1750 800 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1750 800  1750 900 
+Wire Wire Line
+	1750 900  1650 900 
+Text HLabel 4150 4600 0    60   Input ~ 0
+I2C_SDA
+Text HLabel 4150 4700 0    60   Input ~ 0
+I2C_SCL
+Text HLabel 4150 4800 0    60   Input ~ 0
+DISP_RST
+Wire Wire Line
+	4150 4800 4350 4800
+Wire Wire Line
+	4350 4700 4150 4700
+Wire Wire Line
+	4150 4600 4350 4600
+Wire Wire Line
+	4350 4500 4250 4500
+Wire Wire Line
+	4250 4500 4250 4400
+Wire Wire Line
+	4350 4900 4250 4900
+Wire Wire Line
+	4250 4900 4250 5000
+Wire Notes Line
+	3450 4050 3450 5350
+Wire Notes Line
+	3450 5350 5050 5350
+Wire Notes Line
+	5050 5350 5050 4050
+Wire Notes Line
+	5050 4050 3450 4050
+Text Notes 3500 4150 0    60   ~ 0
+OLED Display Connection
+Wire Notes Line
+	7800 1900 7800 3850
+Wire Notes Line
+	7800 3850 5150 3850
+Wire Notes Line
+	5150 3850 5150 1900
+Wire Notes Line
+	5150 1900 7800 1900
+Text Notes 5200 2000 0    60   ~ 0
+LED Strip Connection
+Wire Notes Line
+	4500 2000 4500 3350
+Wire Notes Line
+	4500 3350 2600 3350
+Wire Notes Line
+	2600 3350 2600 2000
+Wire Notes Line
+	2600 2000 4500 2000
+Text Notes 2650 2100 0    60   ~ 0
+Battery Input Connection
+$Comp
+L +5V #PWR?
+U 1 1 584A339B
+P 1750 1200
+F 0 "#PWR?" H 1750 1050 50  0001 C CNN
+F 1 "+5V" H 1750 1340 50  0000 C CNN
+F 2 "" H 1750 1200 50  0000 C CNN
+F 3 "" H 1750 1200 50  0000 C CNN
+	1    1750 1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1750 1200 1750 1300
+Wire Wire Line
+	1750 1300 1550 1300
+Wire Notes Line
+	9050 4650 9050 6150
+Wire Notes Line
+	9050 6150 6750 6150
+Wire Notes Line
+	6750 6150 6750 4650
+Wire Notes Line
+	6750 4650 9050 4650
+Text Notes 6800 4750 0    60   ~ 0
+Charger 12V Input Connection\n
+Text Notes 5500 2950 0    60   ~ 0
+Level shifting
+Text Notes 2750 2550 0    60   ~ 0
+reverse input protection
+Text Notes 7250 5900 0    60   ~ 0
+input protection?
+$Comp
+L C C?
+U 1 1 584A6B97
+P 6250 2450
+F 0 "C?" H 6275 2550 50  0000 L CNN
+F 1 "C" H 6275 2350 50  0000 L CNN
+F 2 "" H 6288 2300 50  0000 C CNN
+F 3 "" H 6250 2450 50  0000 C CNN
+	1    6250 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 584A6BF4
+P 6250 3350
+F 0 "C?" H 6275 3450 50  0000 L CNN
+F 1 "C" H 6275 3250 50  0000 L CNN
+F 2 "" H 6288 3200 50  0000 C CNN
+F 3 "" H 6250 3350 50  0000 C CNN
+	1    6250 3350
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
