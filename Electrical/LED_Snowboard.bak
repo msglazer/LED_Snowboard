@@ -144,12 +144,8 @@ Wire Wire Line
 	3400 5550 3250 5550
 Text HLabel 3400 5250 2    60   Input ~ 0
 BAT
-Text HLabel 3350 2900 2    60   Input ~ 0
-V_IN_Conn
 Wire Wire Line
 	3350 2900 3250 2900
-Text HLabel 3400 5350 2    60   Input ~ 0
-V_IN_Conn
 Wire Wire Line
 	3400 5350 3250 5350
 Wire Wire Line
@@ -200,4 +196,8 @@ Wire Wire Line
 	5050 3450 4900 3450
 Wire Wire Line
 	3350 3450 3250 3450
+Text HLabel 3400 5350 2    60   Input ~ 0
+V_IN_Conn
+Text HLabel 3350 2900 2    60   Input ~ 0
+V_IN_Conn
 $EndSCHEMATC
