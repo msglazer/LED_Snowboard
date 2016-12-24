@@ -1,3 +1,11 @@
+#include <TinyGPS.h>
+
+#include <FastLED.h>
+
+#include <MahonyAHRS.h>
+
+#include <SparkFunLSM9DS1.h>
+
 
 
 
