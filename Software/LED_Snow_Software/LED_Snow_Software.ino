@@ -1,3 +1,4 @@
+#include <Adafruit_SSD1306.h>
 #include <TinyGPS++.h>
 #include <MahonyAHRS.h>
 #include <SparkFunLSM9DS1.h>
@@ -11,7 +12,7 @@
 #define LSM9DS1_M   0x58  //change this 
 #define LSM9DS1_AG  0x58  //change this 
 #define DECLINATION 14.45
-#define LED_PIN     5     //change this
+#define LED_PIN     16     
 
 
 CRGB leds[NUM_LEDS];
@@ -26,6 +27,7 @@ HardwareSerial Uart = HardwareSerial();
 int Ipos   = NUM_LEDS / 2;
 int width  = 10;
 float GPSlat, GPSlng, GPSspeed;
+float roll, pitch, heading;
 
 
 void setup() 
@@ -66,13 +68,13 @@ void displayInfo()
 {
   if (gps.location.isUpdated())
   {
-    gps.location.lat(),6;
-    gps.location.lng(),6;
+    GPSlat = gps.location.lat(),6;
+    GPSlng = gps.location.lng(),6;
   }
   
   else if (gps.speed.isUpdated())
   {
-    gps.speed.mph();
+    GPSspeed = gps.speed.mph();
   }
   else if (gps.altitude.isUpdated())
   {
@@ -81,35 +83,7 @@ void displayInfo()
   }
 }
 
-float GetGPSlat()
-{
-  if (gps.location.isUpdated())
-  {
-    GPSlat = gps.location.lat(),6;
-  }
 
-  return GPSlat;
-}
-
-float GetGPSlng()
-{
-  if (gps.location.isUpdated())
-  {
-    GPSlat = gps.location.lng(),6;
-  }
-
-  return GPSlng;
-}
-
-float GetGPSspeed()
-{
-  if (gps.speed.isUpdated())
-  {
-    GPSspeed = gps.speed.mph();
-  }
-
-  return GPSspeed;
-}
 
 /////////////////////////////////////////////////////////////////////////////////////
 ////////////                           IMU Functions                     ////////////
