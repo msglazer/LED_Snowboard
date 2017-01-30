@@ -4,7 +4,6 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <TinyGPS++.h>
-#include <MahonyAHRS.h>
 #include <SparkFunLSM9DS1.h>
 //#include <FastLED.h>
 #include <Adafruit_NeoPixel.h>
@@ -26,16 +25,15 @@
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
 LSM9DS1 imu;
 TinyGPSPlus gps;
-Mahony filter;
 Adafruit_SSD1306 display(OLED_RESET);
 
 HardwareSerial Uart = HardwareSerial();
 
 
-int Ipos   = NUM_LEDS / 2;
-int width  = 10;
-float R1   = 10;    //change these values
-float R2   = 10;    //change these values
+//int Ipos   = NUM_LEDS / 2;
+//int width  = 10;
+float R1   = 10000;    //change these values
+float R2   = 36000;    //change these values
 float GPSlat, GPSlng, GPSspeed, maxSpeed, GPSheightF, GPSheightM;
 float roll, pitch, heading;
 float voltage;
@@ -50,6 +48,9 @@ void setup()
   Serial.begin(115200);
   Uart.begin(9600);
 
+  analogReference(DEFAULT);
+  analogReadResolution(12);
+  analogReadAveraging(32);
   
   Serial.print("Initializing SD card...");
   
@@ -72,7 +73,7 @@ void setup()
   imu.settings.device.mAddress = LSM9DS1_M;
   imu.settings.device.agAddress = LSM9DS1_AG;
   imu.begin();
-  filter.begin(100);
+  imu.calibrate();
 
   strip.begin();
   strip.show();
@@ -94,6 +95,7 @@ void loop()
 
   //need to actually call some functions here
   speedDistance();
+  IMUread();
   sensorFusion();
   batteryV();
   snow_show();
@@ -136,13 +138,8 @@ void speedDistance()
 /////////////////////////////////////////////////////////////////////////////////////
 
 
-void sensorFusion()
-{
-  float ax, ay, az;
-  float gx, gy, gz;
-  float mx, my, mz;
-  float roll, pitch, heading;
-  
+void IMUread()
+{ 
   if (imu.accelAvailable())
   {
     imu.readAccel();
@@ -157,33 +154,57 @@ void sensorFusion()
   {
     imu.readMag();
   }
+}
 
-  filter.update(gx, gy, gz, ax, ay, az, mx, my, mz);
-
-  roll = filter.getRoll();
-  pitch = filter.getPitch();
-  heading = filter.getYaw();
+void IMUcalc(float ax, float ay, float az, float mx, float my, float mz)
+{
+  float roll = atan2(ay, az);
+  float pitch = atan2(-ax, sqrt(ay * ay + az * az));
+  
+  float heading;
+  if (my == 0)
+    heading = (mx < 0) ? PI : 0;
+  else
+    heading = atan2(mx, my);
+    
+  heading -= DECLINATION * PI / 180;
+  
+  if (heading > PI) 
+    heading -= (2 * PI);
+  else if (heading < -PI) 
+    heading += (2 * PI);
+  else if (heading < 0) 
+    heading += 2 * PI;
+  
+  // Convert everything from radians to degrees:
+  heading *= 180.0 / PI;
+  pitch *= 180.0 / PI;
+  roll  *= 180.0 / PI;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
 ////////////                           LED Functions                     ////////////
 /////////////////////////////////////////////////////////////////////////////////////
 
-void LED_Show(int intpos, int width, int color ) //color optiosn//)
+
+
+void LED_Show() //color options//
 {
-  int i = intpos;
-  for (int n = 0; n < width; n++)
+  GPSspeedMap = map(GPSspeedMap, 0 , maxSpeed, 0, 255);
+  for (int i = 0; i<strip.numPixels(); i++)
   {
-    strip.setPixelColor(i, LEDcolor);
-    //leds[i] += //COLOR options?????
-    i++;
-    if (i = NUM_LEDS)
-    {
-      i = 0;
-    }
+    strip.setPixelColor(i, Wheel(GPSspeedMap));
   }
+  strip.show();
 }
 
+uint32_t Wheel (byte WheelPos)
+{
+  return strip.color(0 ,WheelPos * 3, 255 - WheelPos * 3);
+}
+
+/*
+ *
 void speedToColor()
 {
   if (GPSspeed <= 3)
@@ -223,7 +244,7 @@ void speedToColor()
     LEDcolor = strip.Color(255, 0, 0);
   }
 }
-
+*/
 
 /////////////////////////////////////////////////////////////////////////////////////
 ////////////                        Display Functions                    ////////////
@@ -240,7 +261,7 @@ void snow_show()
 void batteryV()
 {
   float raw_voltage = analogRead(voltagePin);
-  float divider_voltage = (raw_voltage * 3.3) / 1024; //check ADC options here
+  float divider_voltage = (raw_voltage * 3.3) / 4096.0; //check ADC options here
   voltage = divider_voltage / (R2/(R1+R2));
 }
 
