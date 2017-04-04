@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:LED_Snowboard-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -28,7 +29,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:parts
 LIBS:Snowboard_Parts
 LIBS:LED_Snowboard-cache
 EELAYER 25 0

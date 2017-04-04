@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:LED_Snowboard-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -28,7 +29,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:parts
 LIBS:Snowboard_Parts
 LIBS:LED_Snowboard-cache
 EELAYER 25 0
@@ -226,7 +226,7 @@ $EndComp
 Text HLabel 10400 1300 2    60   Input ~ 0
 V_SYS
 $Comp
-L LED D1
+L LED-RESCUE-LED_Snowboard D1
 U 1 1 58479A9B
 P 4800 2600
 F 0 "D1" H 4800 2700 50  0000 C CNN
@@ -1208,7 +1208,7 @@ F 3 "" H 6250 4400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D3
+L LED-RESCUE-LED_Snowboard D3
 U 1 1 584992A0
 P 6250 4750
 F 0 "D3" H 6250 4850 50  0000 C CNN
@@ -1225,7 +1225,7 @@ Wire Wire Line
 	6250 4100 6250 4250
 Connection ~ 6250 4200
 $Comp
-L LED D2
+L LED-RESCUE-LED_Snowboard D2
 U 1 1 58499F2B
 P 5700 6400
 F 0 "D2" H 5700 6500 50  0000 C CNN
